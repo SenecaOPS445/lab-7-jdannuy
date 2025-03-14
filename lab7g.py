@@ -1,21 +1,30 @@
 #!/usr/bin/env python3
-# Student ID: [seneca_id]
+# Student ID: jdannuy
+
+#!/usr/bin/env python3
+import unittest
+
+# Function to test
 def function1():
-    # This object 'a' is completely unrelated to the object 'a' in function2():
     a = 'object_function1'
-    print('print() call in function1 on a:', a)
+    return a  # Returning value for the test case
 
 def function2():
-    # This variable 'a' is completely unrelated to the variable 'a' in function1():
-    a = 'function2_object'
-    print('print() call in function2 on a:', a)
+    a = 'object_function2'
+    return a  # Returning value for the test case
 
-# Note that you cannot access the value of object '''a''' created in function1()
-# or function2() with the print() functions after calling function1() and function2()
-# All the print() retrieved the value of object '''a''' defined in the main script.
-a = 'object_in_main'
-print('print() call in main on a:', a)
-function1()
-print('print() call in main on a:', a)
-function2()
-print('print() call in main on a:', a)
+# Test case class
+class TestLab7G(unittest.TestCase):
+
+    def test_function1(self):
+        # Test the output of function1
+        result = function1()
+        self.assertEqual(result, 'object_function1')  # Check if it returns the expected value
+
+    def test_function2(self):
+        # Test the output of function2
+        result = function2()
+        self.assertEqual(result, 'object_function2')  # Check if it returns the expected value
+
+if __name__ == '__main__':
+    unittest.main()
